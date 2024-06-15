@@ -1,6 +1,6 @@
 notify = loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Notification.lua"))()
-notify.New("Script Made By White", 5)
-wait(3)
+notify.New("Script By White",5)
+wait(5)
 notify.New("Loaded!!",3)
 local decalsYeeted = true
 local workspace = game.Workspace
@@ -20,9 +20,6 @@ local terrainSettings = {
   WaterReflectance = 0,
   WaterTransparency = 0,
 }
-for setting, value in pairs(terrainSettings) do
-  terrain[setting] = value
-end
 
 lighting.GlobalShadows = 0
 lighting.FogEnd = 9e9
@@ -80,7 +77,6 @@ local function handleClothing(clothing)
   end
 end
 
--- Handle existing descendants
 for _, descendant in pairs(workspace:GetDescendants()) do
   if descendant:IsA("BasePart") and not descendant:IsA("MeshPart") then
     handleBasePart(descendant)
@@ -124,19 +120,40 @@ workspace.DescendantAdded:Connect(function(descendant)
   elseif descendant:IsA("Shirt") or descendant:IsA("Pants") then
     handleClothing(descendant)
   end
-end
+end)
+
 
 -- Remove
-workspace.RemoveAdded:Connect(function(Remove)
+workspace.RemoveAdded:Connect(function(remove)
   if remove:IsA("Tree") and not remove:IsA("MeshPart") then
      handleTree(remove)
-  elseif remove:IsA("Glass") or remove;IsA("Texture") then
+  elseif remove:IsA("Glass") or remove:IsA("Texture") then
     handleGlassTexture(remove)
-  elseif remove:IsA("Part") or remove;IsA("Texture") then
+  elseif remove:IsA("Part") or remove:IsA("Texture") then
     handlePartTexture(Remove)
-  elseif remove:IsA("Tree3") or remove;IsA("Texture") then
+  elseif remove:IsA("Tree3") or remove:IsA("Texture") then
     handleTreesTexture(remove)
   end
 end)
 
-print("Anti-lag script loaded successfully!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
