@@ -1,0 +1,45 @@
+--[[This Is lua By White5961]]
+settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+function handleBasePart(Plastic)
+  Plastic.Material = Enum.Material.Plastic
+  Plastic.Reflectance = 0
+end
+w = workspace
+g = game
+r = g.ReplicatedStorage
+l = g.Lighting
+for _,v in pairs(r:GetDescendants()) do
+if v.Name == "Effects3D" then
+v:Destroy()
+elseif v.Name == "start" then
+v:Destroy()
+elseif v.Name == "Dart" then
+v:Destroy()
+elseif v.Name == "Shoot" then
+v:Destroy()
+elseif v.Name == "Modules" then
+v:Destroy()
+     end
+end
+for _,v in pairs(l:GetDescendants()) do
+if v.Name == "SunRays" then
+v:Destroy()
+elseif v.Name == "Blur" then
+v:Destroy()
+elseif v.Name == "Sky" then
+v:Destroy()
+elseif v.Name == "Bloom" then
+v:Destroy()
+elseif v.Name == "Settings" then
+v:Destroy()
+   end
+end
+for _,v in pairs(w:GetDescendants()) do
+if v.Name == "water" then
+v:Destroy()
+elseif v.Name == "wh" then
+v:Destroy()
+elseif v.Name == "Upgrades" then
+v:Destroy()
+  end
+end
