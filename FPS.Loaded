@@ -1,117 +1,4 @@
-_G.Color = Color3.fromRGB(255,0,0)
 
-function Notification(text)
-game.StarterGui:SetCore("SendNotification", {
-  Title = "Copied!", -- the title (ofc)
-  Text = text, -- what the text says (ofc)
-  Icon = "rbxassetid://14103696428", -- the image if u want.
-  Duration = 3 -- how long the notification should in secounds
-})
-end
-
-local UserInputService = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
-
-function CircleClick(Button, X, Y)
-coroutine.resume(
-  coroutine.create(
-    function()
-    local Circle = Instance.new("ImageLabel")
-    Circle.Parent = Button
-    Circle.Name = "Circle"
-    Circle.BackgroundColor3 = Color3.fromRGB(255,0,0)
-    Circle.BackgroundTransparency = 1.000
-    Circle.ZIndex = 10
-    Circle.Image = "rbxassetid://266543268"
-    Circle.ImageColor3 = Color3.fromRGB(255, 0, 0)
-    Circle.ImageTransparency = 0.7
-    local NewX = X - Circle.AbsolutePosition.X
-    local NewY = Y - Circle.AbsolutePosition.Y
-    Circle.Position = UDim2.new(0, NewX, 0, NewY)
-
-    local Time = 0.2
-    Circle:TweenSizeAndPosition(
-      UDim2.new(0, 30.25, 0, 30.25),
-      UDim2.new(0, NewX - 15, 0, NewY - 10),
-      "Out",
-      "Quad",
-      Time,
-      false,
-      nil
-    )
-    for i = 1, 10 do
-    Circle.ImageTransparency = Circle.ImageTransparency + 0.01
-    wait(Time / 10)
-    end
-    Circle:Destroy()
-    end
-  )
-)
-end
-
-local UI = Instance.new("ScreenGui")
-UI.Name = "UI"
-UI.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
-UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-local StatusFrame = Instance.new("Frame")
-StatusFrame.Name = "StatusFrame"
-StatusFrame.Parent = UI
-StatusFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
-StatusFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-StatusFrame.Size = UDim2.new(0, 0, 0, 0)
-StatusFrame.ClipsDescendants = true
-StatusFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-
-StatusFrame:TweenSize(UDim2.new(0,200,0,130),"Out","Quad",0.4,true)
-
-local SettingCornerrr = Instance.new("UICorner")
-SettingCornerrr.CornerRadius = UDim.new(0,15)
-SettingCornerrr.Name = "SettingCornerrr"
-SettingCornerrr.Parent = StatusFrame
-
-local StaminaText = Instance.new("TextLabel")
-StaminaText.Name = "StaminaText"
-StaminaText.Parent = StatusFrame
-StaminaText.Active = true
-StaminaText.BackgroundColor3 = Color3.new(1,1,1)
-StaminaText.BackgroundTransparency = 1.000
-StaminaText.Position = UDim2.new(0.0260000005, 0, 0.00000001, 0)
-StaminaText.Size = UDim2.new(0, 200, 0, 22)
-StaminaText.Font = Enum.Font.GothamBold
-StaminaText.Text = "                                  Booster FPS 🇻🇳"
-StaminaText.TextColor3 = Color3.new(1,1,1)
-StaminaText.TextSize = 12.000
-StaminaText.TextWrapped = true
-StaminaText.TextXAlignment = Enum.TextXAlignment.Center
-
-local Message = Instance.new("TextLabel")
-Message.Name = "Message"
-Message.Parent = StatusFrame
-Message.Active = true
-Message.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Message.BackgroundTransparency = 1.000
-Message.Position = UDim2.new(0.020000005, 0, 0.24000001, 0)
-Message.Size = UDim2.new(0, 190, 0, 22)
-Message.Font = Enum.Font.GothamBold
-Message.Text = "Script Made By White "
-Message.TextColor3 = Color3.fromRGB(255, 0, 0)
-Message.TextSize = 12.500
-Message.TextWrapped = false
-Message.TextXAlignment = Enum.TextXAlignment.Center
-
-local UiStatus = Instance.new("UIStroke")
-UiStatus.Thickness = 1
-UiStatus.Parent = StatusFrame
-UiStatus.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UiStatus.LineJoinMode = Enum.LineJoinMode.Round
-UiStatus.Color = _G.Color
-UiStatus.Transparency = 0.10
-wait(3)
-UI:Destroy()
 local decalsYeeted = true
 local workspace = game.Workspace
 local lighting = game.Lighting
@@ -140,7 +27,7 @@ settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
 local function handleBasePart(part)
   part.Material = Enum.Material.Plastic
   part.Reflectance = 0
-end
+end 
 
 local function handleDecalOrTexture(decalOrTexture)
   if decalsYeeted then
