@@ -35,5 +35,16 @@ elseif v.Name == "wh" then
 v:Destroy()
 elseif v.Name == "Upgrades" then
 v:Destroy()
+elseif v.Name == "Jetpack" then
+v:Destroy()
+elseif v.Name == "Animation" then
+v:Destroy()
+elseif v.Name == "Fuse" then
+v:Destroy()
   end
+end
+for _,v in pairs(game:GetDescendants()) do
+if v.Name == "Lighting" then
+v:Destroy()
+ end
 end
