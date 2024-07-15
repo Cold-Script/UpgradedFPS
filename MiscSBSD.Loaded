@@ -1,0 +1,126 @@
+function Notify(titletxt, text, time)
+    local GUI = Instance.new("ScreenGui")
+    local Main = Instance.new("Frame", GUI)
+    local title = Instance.new("TextLabel", Main)
+    local uistroke = Instance.new("UIStroke")
+    local uistroke2 = Instance.new("UIStroke")
+    
+
+    local message = Instance.new("TextLabel", Main)
+    GUI.Name = "NotificationOof"
+    GUI.Parent = game.CoreGui
+    Main.Name = "MainFrame"
+    Main.BackgroundColor3 = Color3.new(1,1,1)
+    Main.BackgroundTransparency = 1
+    Main.BorderSizePixel = 0
+    Main.Position = UDim2.new(1, 5, 0, 40)
+    Main.Size = UDim2.new(0, 330, 0, 100)
+ 
+    title.BackgroundColor3 = Color3.new(1,1,1)
+    title.BackgroundTransparency = 1
+    title.Size = UDim2.new(1, 0, 0, 30)
+    title.Font = Enum.Font.Oswald
+    title.Text =  titletxt
+    title.TextSize = 25  --- Size to liking
+ spawn(function()
+    while wait() do
+    title.TextColor3 = Color3.fromRGB(255,0,0)
+    end
+end)
+    message.BackgroundColor3 = Color3.new(1,1,1)
+    message.BackgroundTransparency = 0.85
+    message.Position = UDim2.new(0, 0, 0, 30)
+    message.Size = UDim2.new(1, 0, 1, -30)
+    message.Font = Enum.Font.Oswald
+    message.Text = "  ⚠️  " .. text
+    message.TextSize = 20   --- Size to liking
+ spawn(function()
+    while wait() do
+    message.TextColor3 = Color3.fromHSV(tick() % 4/5,1,1)
+    end
+end)
+    uistroke.Thickness = 0.5
+    uistroke.Parent = message
+    uistroke2.Thickness = 0.5
+    uistroke2.Parent = title
+    
+
+    wait(0.1)
+    Main:TweenPosition(UDim2.new(1, -330, 0, 50), "Out", "Sine", 0.5)
+    wait(time)
+    Main:TweenPosition(UDim2.new(1, 5, 0, 50), "Out", "Sine", 0.5)
+    wait(0.5)
+    GUI:Destroy();
+end
+ 
+
+w = workspace
+g = game
+r = g.ReplicatedStorage
+l = g.Lighting
+for _,v in pairs(r:GetDescendants()) do
+if v.Name == "Effects3D" then
+v:Destroy()
+elseif v.Name == "start" then
+v:Destroy()
+elseif v.Name == "Dart" then
+v:Destroy()
+elseif v.Name == "Shoot" then
+v:Destroy()
+elseif v.Name == "Modules" then
+v:Destroy()
+     end
+end
+for _,v in pairs(l:GetDescendants()) do
+if v.Name == "SunRays" then
+v:Destroy()
+elseif v.Name == "Blur" then
+v:Destroy()
+elseif v.Name == "Sky" then
+v:Destroy()
+elseif v.Name == "Bloom" then
+v:Destroy()
+elseif v.Name == "Settings" then
+v:Destroy()
+   end
+end
+for _,v in pairs(w:GetDescendants()) do
+if v.Name == "water" then
+v:Destroy()
+elseif v.Name == "wh" then
+v:Destroy()
+elseif v.Name == "Upgrades" then
+v:Destroy()
+elseif v.Name == "brown" then
+v:Destroy()
+elseif v.Name == "Plants" then
+v:Destroy()
+elseif v.Name == "jump" then
+v:Destroy()
+elseif v.Name == "Animation" then
+v:Destroy()
+elseif v.Name == "Fuse" then
+v:Destroy()
+  end
+end
+for _,v in pairs(game:GetDescendants()) do
+if v.Name == "Lighting" then
+v:Destroy()
+ end
+end
+if _G.Misc = "ON" then
+g = game
+plr = g.Players.LocalPlayer.Character.Humanoid
+Notify("Warning !!!", "Jump < 2 > time to fly (need jetpack)", 5)
+plr.JumpPower = 1
+plr.WalkSpeed = 120
+workspace.CurrentCamera.FieldOfView = 120
+end
+if _G.Misc = "OFF" then
+g = game
+plr = g.Players.LocalPlayer.Character.Humanoid
+Notify("Warning !!!", "Jump < 2 > time to fly (need jetpack)", 5)
+plr.JumpPower = 50
+plr.WalkSpeed = 16
+workspace.CurrentCamera.FieldOfView = 70
+end
