@@ -1,4 +1,5 @@
-function Notify(titletxt, text, time)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function Notify(text, time)
     local GUI = Instance.new("ScreenGui")
     local Main = Instance.new("Frame", GUI)
     local title = Instance.new("TextLabel", Main)
@@ -18,10 +19,10 @@ function Notify(titletxt, text, time)
  
     title.BackgroundColor3 = Color3.new(1,1,1)
     title.BackgroundTransparency = 1
-    title.Size = UDim2.new(1, 0, 0, 30)
+    title.Size = UDim2.new(1, 0, 0, 10)
     title.Font = Enum.Font.Oswald
-    title.Text =  titletxt
-    title.TextSize = 25  --- Size to liking
+    title.Text =  "⚠️Warning⚠️"
+    title.TextSize = 50 --- Size to liking
  spawn(function()
     while wait() do
     title.TextColor3 = Color3.fromRGB(255,0,0)
@@ -30,13 +31,13 @@ end)
     message.BackgroundColor3 = Color3.new(1,1,1)
     message.BackgroundTransparency = 0.85
     message.Position = UDim2.new(0, 0, 0, 30)
-    message.Size = UDim2.new(1, 0, 1, -30)
+    message.Size = UDim2.new(1, 0, 1, -50)
     message.Font = Enum.Font.Oswald
-    message.Text = "  ⚠️  " .. text
-    message.TextSize = 20   --- Size to liking
+    message.Text = text
+    message.TextSize = 25   --- Size to liking
  spawn(function()
     while wait() do
-    message.TextColor3 = Color3.fromHSV(tick() % 4/5,1,1)
+    message.TextColor3 = Color3.new(1,1,1)
     end
 end)
     uistroke.Thickness = 0.5
@@ -45,19 +46,21 @@ end)
     uistroke2.Parent = title
     
 
-    wait(0.1)
     Main:TweenPosition(UDim2.new(1, -330, 0, 50), "Out", "Sine", 0.5)
+wait(0.75)
+    Main:TweenPosition(UDim2.new(1, -330, 0, -10), "Out", "Sine", 0.5)
     wait(time)
-    Main:TweenPosition(UDim2.new(1, 5, 0, 50), "Out", "Sine", 0.5)
-    wait(0.5)
     GUI:Destroy();
 end
- 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 w = workspace
 g = game
 r = g.ReplicatedStorage
 l = g.Lighting
+plr = g.Players.LocalPlayer.Character
+h = plr.Humanoid
+c = w.CurrentCamera
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 for _,v in pairs(r:GetDescendants()) do
 if v.Name == "Effects3D" then
 v:Destroy()
@@ -108,19 +111,14 @@ if v.Name == "Lighting" then
 v:Destroy()
  end
 end
-if _G.Misc = "ON" then
-g = game
-plr = g.Players.LocalPlayer.Character.Humanoid
-Notify("Warning !!!", "Jump < 2 > time to fly (need jetpack)", 5)
-plr.JumpPower = 1
-plr.WalkSpeed = 120
-workspace.CurrentCamera.FieldOfView = 120
-end
-if _G.Misc = "OFF" then
-g = game
-plr = g.Players.LocalPlayer.Character.Humanoid
-Notify("Warning !!!", "Jump < 2 > time to fly (need jetpack)", 5)
-plr.JumpPower = 50
-plr.WalkSpeed = 16
-workspace.CurrentCamera.FieldOfView = 70
-end
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+spawn(function()
+     game:GetService("RunService").RenderStepped:Connect(function()
+          h.JumpPower = 1
+          h.HipHeight = 100
+          h.WalkSpeed = 120
+          c.FieldOfView = 120
+    end)
+end)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Notify("Complete,You Right Using Enchanted Brown Teslacope", 10)
