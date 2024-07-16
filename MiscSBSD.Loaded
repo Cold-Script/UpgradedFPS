@@ -1,58 +1,4 @@
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function Notify(text, time)
-    local GUI = Instance.new("ScreenGui")
-    local Main = Instance.new("Frame", GUI)
-    local title = Instance.new("TextLabel", Main)
-    local uistroke = Instance.new("UIStroke")
-    local uistroke2 = Instance.new("UIStroke")
-    
-
-    local message = Instance.new("TextLabel", Main)
-    GUI.Name = "NotificationOof"
-    GUI.Parent = game.CoreGui
-    Main.Name = "MainFrame"
-    Main.BackgroundColor3 = Color3.new(1,1,1)
-    Main.BackgroundTransparency = 1
-    Main.BorderSizePixel = 0
-    Main.Position = UDim2.new(1, 5, 0, 40)
-    Main.Size = UDim2.new(0, 330, 0, 100)
- 
-    title.BackgroundColor3 = Color3.new(1,1,1)
-    title.BackgroundTransparency = 1
-    title.Size = UDim2.new(1, 0, 0, 10)
-    title.Font = Enum.Font.Oswald
-    title.Text =  "⚠️Warning⚠️"
-    title.TextSize = 50 --- Size to liking
- spawn(function()
-    while wait() do
-    title.TextColor3 = Color3.fromRGB(255,0,0)
-    end
-end)
-    message.BackgroundColor3 = Color3.new(1,1,1)
-    message.BackgroundTransparency = 0.85
-    message.Position = UDim2.new(0, 0, 0, 30)
-    message.Size = UDim2.new(1, 0, 1, -50)
-    message.Font = Enum.Font.Oswald
-    message.Text = text
-    message.TextSize = 25   --- Size to liking
- spawn(function()
-    while wait() do
-    message.TextColor3 = Color3.new(1,1,1)
-    end
-end)
-    uistroke.Thickness = 0.5
-    uistroke.Parent = message
-    uistroke2.Thickness = 0.5
-    uistroke2.Parent = title
-    
-
-    Main:TweenPosition(UDim2.new(1, -330, 0, 50), "Out", "Sine", 0.5)
-wait(0.75)
-    Main:TweenPosition(UDim2.new(1, -330, 0, -10), "Out", "Sine", 0.5)
-    wait(time)
-    GUI:Destroy();
-end
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 w = workspace
 g = game
 r = g.ReplicatedStorage
@@ -104,6 +50,8 @@ elseif v.Name == "Animation" then
 v:Destroy()
 elseif v.Name == "Fuse" then
 v:Destroy()
+elseif v.Name == "AnimSaves" then
+v:Destroy()
   end
 end
 for _,v in pairs(game:GetDescendants()) do
@@ -111,14 +59,3 @@ if v.Name == "Lighting" then
 v:Destroy()
  end
 end
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-spawn(function()
-     game:GetService("RunService").RenderStepped:Connect(function()
-          h.JumpPower = 1
-          h.HipHeight = 100
-          h.WalkSpeed = 120
-          c.FieldOfView = 120
-    end)
-end)
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Notify("Complete,You Right Using Enchanted Brown Teslacope", 10)
