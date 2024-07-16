@@ -44,8 +44,6 @@ elseif v.Name == "brown" then
 v:Destroy()
 elseif v.Name == "Plants" then
 v:Destroy()
-elseif v.Name == "jump" then
-v:Destroy()
 elseif v.Name == "Animation" then
 v:Destroy()
 elseif v.Name == "Fuse" then
