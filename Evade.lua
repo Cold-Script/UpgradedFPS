@@ -9,8 +9,6 @@ elseif v.Name == "Objectives" then
 v:Destroy()
 elseif v.Name == "ImmovableProps" then
 v:Destroy()
-elseif v.Name == "InvisParts" then
-v:Destroy()
 elseif v.Name == "Elevator" then
 v:Destroy()
 elseif v.Name == "Ignore" then
@@ -22,8 +20,6 @@ v:Destroy()
 elseif v.Name == "Grass" then
 v:Destroy()
 elseif v.Name == "Paintings" then
-v:Destroy()
-elseif v.Name == "Hill" then
 v:Destroy()
 elseif v.Name == "Navmesh" then
 v:Destroy()
