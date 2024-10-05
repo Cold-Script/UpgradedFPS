@@ -35,6 +35,16 @@ elseif v.Name == "SavedTerrain" then
 v:Destroy()                
 end
 end
+if _G.Execute then
+print("LOLCAT :D")
+end
+_G.Execute = true
+local IJ = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+if IJ then
+game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+end
+end)
 pcall(function()
 game.Lighting.GlobalShadows = not true		
 game.Lighting.Brightness = 2
