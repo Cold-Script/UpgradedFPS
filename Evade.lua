@@ -40,3 +40,12 @@ game.Lighting.GlobalShadows = not true
 game.Lighting.Brightness = 2
 game.Lighting.OutdoorAmbient = Color3.new(1,1,1)
 end)
+game:GetService("RunService").RenderStepped:Connect(function()			
+pcall(function()	
+if game.Players.LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 then
+game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * 5.5/100)
+end
+game.Players.LocalPlayer.PlayerScripts.CameraShake.Value = CFrame.new(0,0,0) * CFrame.new(0,0,0)
+workspace.Game.Settings:SetAttribute("ReviveTime", 1.975)
+end)
+end)
