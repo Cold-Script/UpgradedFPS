@@ -39,20 +39,8 @@ elseif v.Name == "SavedTerrain" then
 v:Destroy()                
 end
 end
-for _, object in pairs(workspace:GetDescendants()) do
-if object:IsA("BasePart") then
-if not object:GetAttribute("Material") then object:SetAttribute("Material", object.Material) end
-if not object:GetAttribute("Reflectance") then object:SetAttribute("Reflectance", object.Reflectance) end
-object.Material = true and Enum.Material.Plastic or object:GetAttribute("Material")
-object.Reflectance = true and 0 or object:GetAttribute("Reflectance")
-elseif object:IsA("Decal") then
-if not object:GetAttribute("Transparency") then object:SetAttribute("Transparency", object.Transparency) end
-end
-end
-workspace.Terrain.WaterReflectance = true and 0 or 1
-workspace.Terrain.WaterTransparency = true and 0 or 1
-workspace.Terrain.WaterWaveSize = true and 0 or 0.05
-workspace.Terrain.WaterWaveSpeed = true and 0 or 8
+pcall(function()
 game.Lighting.GlobalShadows = not true		
 game.Lighting.Brightness = 2
 game.Lighting.OutdoorAmbient = Color3.new(1,1,1)
+end)
